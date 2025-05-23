@@ -32,6 +32,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
+    "@release-it/bumper": "^7.0.5",
+    "@release-it/keep-a-changelog": "^7.0.0",
     "@seahax/eslint-plugin-wrap": "^0.6.7",
     "@stylistic/eslint-plugin": "^4.2.0",
     "@tailwindcss/vite": "^4.1.7",
@@ -46,6 +48,7 @@
     "globals": "^16.1.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
+    "release-it": "^19.0.2",
     "rimraf": "^6.0.1",
     "rollup-plugin-gzip": "^4.0.1",
     "tailwindcss": "^4.1.7",
