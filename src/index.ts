@@ -15,6 +15,7 @@ import { useHeadlessGroupContext } from "./architecture/hooks/use-headless-group
 import type { ComponentAnimationProps } from "./components/component-interfaces.ts";
 import type { FormInputControl, FormInputControlData } from "./components/form/form-control.interface.ts";
 import type { HeadlessCheckboxChangeEvent } from "./components/form/checkboxes/headless-checkboxes.interfaces.ts";
+import type { HeadlessCheckboxProps } from './components/form/checkboxes/checkbox/headless-checkbox.props.ts';
 import type { WithHeadlessChildRenderProp } from "./architecture/headless-interfaces.ts";
 
 import './index.css';
@@ -36,5 +37,6 @@ export type {
   FormInputControl,
   FormInputControlData,
   HeadlessCheckboxChangeEvent,
+  HeadlessCheckboxProps,
   WithHeadlessChildRenderProp
 };
