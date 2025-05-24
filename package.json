@@ -60,5 +60,9 @@
   "peerDependencies": {
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
