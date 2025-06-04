@@ -1,5 +1,12 @@
 import { Signal } from '@preact/signals';
-import React, { type HTMLInputTypeAttribute } from 'react';
+import React, { type HTMLInputTypeAttribute, type ReactNode } from 'react';
+import type { TypeOrArray } from '@beesoft/common';
+
+/**
+ * The child render function used to render custom markup.
+ */
+export type ChildRenderFunction<RP> = (props: RP) => React.JSX.Element;
+export type ChildrenType<RP> = ChildRenderFunction<RP> | TypeOrArray<ReactNode>;
 
 /**
  * This is a basic wrapper around the different core pieces of a headless component.
@@ -14,7 +21,7 @@ export interface HeadlessBaseProps<P, RP> {
    */
   name?: string;
   /**
-   * The backing field to create for the headless component.
+   * The backing field to create for the headless component; this will not be needed for every component.
    */
   type?: HTMLInputTypeAttribute;
   /**
@@ -35,13 +42,17 @@ export interface HeadlessBaseProps<P, RP> {
    */
   onSignalRetrieved?: (signal: Signal) => void;
   /**
-   * The child render function called to render the visual part of the component.
-   * @param {RP} props - The properties to send through the render function.
-   * @returns {React.JSX.Element} The JSX element to render.
+   * The children property used to render the visual part of the component; this can be used in 2 ways:
+   *
+   * 1. As a child render function.
+   * 2. As a wrapper for custom markup.
+   *
+   * If the second option is chosen then the className property will be used to style the wrapper and the item(s) passed
+   * into the property will be appended to the wrapper.
    */
-  children?: (props: RP) => React.JSX.Element;
+  children?: ChildRenderFunction<RP> | TypeOrArray<ReactNode>;
   /**
-   * Used to potentially add styling to the internal field component.
+   * Used to potentially add styling to the wrapper element.
    */
   className?: string;
 }
