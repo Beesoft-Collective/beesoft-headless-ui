@@ -4,12 +4,14 @@ import path from 'node:path';
 import dts from 'vite-plugin-dts';
 import gzipPlugin from 'rollup-plugin-gzip';
 import tailwindcss from '@tailwindcss/vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     tailwindcss(),
     react(),
+    tsconfigPaths(),
     dts({
       tsconfigPath: 'tsconfig.json',
       rollupTypes: true,

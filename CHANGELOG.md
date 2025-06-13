@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Finished the architecture work, removed the `Headless` prefix from the exported components, and restructured the file system setup.
+
 ## [0.0.2] - 2025-05-24
 
 ## Added
