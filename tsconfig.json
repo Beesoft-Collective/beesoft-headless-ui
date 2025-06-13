@@ -27,6 +27,12 @@
     // Some stricter flags (disabled by default)
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noPropertyAccessFromIndexSignature": false
-  }
+    "noPropertyAccessFromIndexSignature": false,
+
+    "paths": {
+      "architecture/*": ["./src/architecture/*"],
+    },
+  },
+  "include": ["./src/**/*", "vite.config.ts"],
+  "exclude": ["node_modules", "dist", "types", "public"]
 }

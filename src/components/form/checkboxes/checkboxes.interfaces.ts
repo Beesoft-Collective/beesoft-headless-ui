@@ -1,6 +1,6 @@
 import type { ChangeEvent } from 'react';
 
-export interface HeadlessCheckboxChangeEvent {
+export interface CheckboxChangeEvent {
   name?: string;
   value: unknown;
   checked: boolean;

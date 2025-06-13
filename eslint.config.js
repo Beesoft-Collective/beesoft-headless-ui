@@ -1,3 +1,4 @@
+import storybook from "eslint-plugin-storybook";
 import js from "@eslint/js";
 import globals from "globals";
 import tsEslint from "typescript-eslint";
@@ -22,6 +23,7 @@ export default defineConfig([
       '@stylistic': stylistic,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      storybook,
     },
     extends: ["js/recommended"],
     rules: {
