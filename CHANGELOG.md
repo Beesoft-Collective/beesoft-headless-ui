@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Removed the tailwind colors to decrease the size of the produced css.
+
 ## [0.0.3] - 2025-06-13
 
 ## Changed
