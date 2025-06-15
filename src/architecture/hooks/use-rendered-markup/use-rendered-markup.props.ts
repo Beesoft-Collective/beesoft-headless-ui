@@ -1,8 +1,8 @@
-import type { ElementType } from 'react';
+import type { ElementType, JSX, ReactNode } from 'react';
 import type { ChildrenType } from '../../headless-interfaces.ts';
 
 export interface RenderedMarkupProps<RP = undefined, P = undefined> {
-  children: ChildrenType<RP>;
+  wrapperElement: ElementType;
   /**
    * When a render function is used this object will be passed as a parameter, when a child node is used the values set
    * in this object will be added to the wrapper element as `data-*` properties.
@@ -13,6 +13,11 @@ export interface RenderedMarkupProps<RP = undefined, P = undefined> {
    * properties.
    */
   elementProps?: P;
-  wrapperElement: ElementType;
+  /**
+   * Allows an element to be set in the children parameter without affecting the functionality of a child render
+   * function.
+   */
+  innerWrapperElement?: JSX.Element | ReactNode;
   className?: string;
+  children: ChildrenType<RP>;
 }

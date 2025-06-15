@@ -4,7 +4,7 @@ import {
   type FieldContextProps
 } from 'architecture/hooks/use-field-context/use-field-context.props.ts';
 import type { FieldProps } from './field.props.ts';
-import { useRenderedMarkup } from 'architecture/hooks/use-rendered-markup/use-rendered-markup.hook.ts';
+import { useRenderedMarkup } from 'architecture/hooks/use-rendered-markup/use-rendered-markup.hook.tsx';
 
 const Field = ({ className, children }: FieldProps) => {
   // this will be used to associate a control with something like a label...use a context to share this

@@ -4,15 +4,28 @@ import { createDataProperties } from '../../functions/create-data-properties.ts'
 import type { RenderedMarkupProps } from './use-rendered-markup.props.ts';
 
 const useRenderedMarkup = <RP = undefined, P = undefined>({
-  children,
+  wrapperElement,
   renderProps,
   elementProps,
-  wrapperElement,
-  className
+  innerWrapperElement,
+  className,
+  children,
 }: RenderedMarkupProps<RP, P>): React.JSX.Element | TypeOrArray<ReactNode> => {
   if (typeof children === 'function') {
-    return children(renderProps);
+    return innerWrapperElement ? (
+      <>
+        {innerWrapperElement}
+        {children(renderProps)}
+      </>
+    ) : children(renderProps);
   } else {
+    const finalChildren = innerWrapperElement ? (
+      <>
+        {innerWrapperElement}
+        {children}
+      </>
+    ) : children;
+
     return createElement(
       wrapperElement,
       Object.assign(
@@ -23,7 +36,7 @@ const useRenderedMarkup = <RP = undefined, P = undefined>({
           className
         },
       ),
-      children
+      finalChildren
     );
   }
 };
