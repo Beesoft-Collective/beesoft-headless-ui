@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Added the feature to allow extra elements in the children; this can be useful for focus styles as well as allowing icons to cause a checkbox to be checked. 
+
 ## [0.0.4] - 2025-06-14
 
 ## Changed
