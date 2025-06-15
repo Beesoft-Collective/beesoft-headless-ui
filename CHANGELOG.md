@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Added the important flag to the hidden class in the hidden field, so user styles can't override the setting.
+
 ## [0.0.5] - 2025-06-15
 
 ## Changed
