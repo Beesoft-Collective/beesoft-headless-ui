@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.6] - 2025-06-15
+
 ## Changed
 
 - Added the important flag to the hidden class in the hidden field, so user styles can't override the setting.
@@ -41,7 +43,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Moved the headless code from `beesoft-components` to this library, this will be the location where all headless work is done from now on.
 
-[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.5...develop
+[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.6...develop
+[0.0.6]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.6
 [0.0.5]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.5
 [0.0.4]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.4
 [0.0.3]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.3
