@@ -12,11 +12,13 @@ import React, {
 import { useFieldContextHook } from 'architecture/hooks/use-field-context/use-field-context.hook.ts';
 import type {
   CheckboxCheckState,
+  CheckboxElementProps,
   CheckboxProps,
-  CheckboxRef, CheckboxRenderProps,
+  CheckboxRef,
+  CheckboxRenderProps,
 } from './checkbox.props.ts';
 import { HiddenField } from 'architecture/components/hidden-field/hidden-field.component.tsx';
-import { useRenderedMarkup } from 'architecture/hooks/use-rendered-markup/use-rendered-markup.hook.ts';
+import { useRenderedMarkup } from 'architecture/hooks/use-rendered-markup/use-rendered-markup.hook.tsx';
 
 const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
   const { name, value, checked = false, partial = false, readOnly, onChange, children, className } = props;
@@ -90,29 +92,30 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
     setChecked,
   }));
 
-  const component = useRenderedMarkup<CheckboxRenderProps>({
-    wrapperElement: 'span',
+  const hiddenField = (
+    <HiddenField
+      id={finalId}
+      name={name}
+      type="checkbox"
+      checked={checkedState.value.checked}
+      readOnly={readOnly}
+      onChange={handleChangeEvent}
+    />
+  );
+
+  return useRenderedMarkup<CheckboxRenderProps, CheckboxElementProps>({
+    wrapperElement: 'label',
     renderProps: {
       ...checkedState.value,
       readOnly,
     },
+    elementProps: {
+      htmlFor: finalId,
+    },
     className,
+    innerWrapperElement: hiddenField,
     children
   });
-
-  return (
-    <>
-      <HiddenField
-        id={finalId}
-        name={name}
-        type="checkbox"
-        checked={checkedState.value.checked}
-        readOnly={readOnly}
-        onChange={handleChangeEvent}
-      />
-      {component}
-    </>
-  );
 };
 
 const Checkbox = memo(forwardRef(CheckboxComponent));

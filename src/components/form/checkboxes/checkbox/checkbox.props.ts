@@ -13,6 +13,10 @@ export interface CheckboxRenderProps {
   readOnly?: boolean;
 }
 
+export interface CheckboxElementProps {
+  htmlFor: string;
+}
+
 export interface CheckboxProps extends MakeRequired<FormInputControl<unknown, CheckboxChangeEvent>, 'name'> {
   checked?: boolean;
   partial?: boolean;
