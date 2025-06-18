@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.7-0] - 2025-06-18
+
 ## Changed
 
 - Testing out a change to see if it fixes an issue.
@@ -47,7 +49,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Moved the headless code from `beesoft-components` to this library, this will be the location where all headless work is done from now on.
 
-[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.6...develop
+[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.7-0...develop
+[0.0.7-0]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.7-0
 [0.0.6]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.6
 [0.0.5]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.5
 [0.0.4]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.4
