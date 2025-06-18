@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Changed the hidden fields hide method from display:none to appearance:none, so it can be used to set focus-within styles.
+
 ## [0.0.7-0] - 2025-06-18
 
 ## Changed
