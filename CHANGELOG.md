@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Added some extra styles to the hidden field, so it won't affect the layout of the HTML and require the user to use absolute positioning to make it looks right.
+
 ## [0.0.7] - 2025-06-18
 
 ## Changed

@@ -30,8 +30,7 @@
   "dependencies": {
     "@beesoft/common": "^0.1.13",
     "@preact/signals": "^2.0.4",
-    "classnames": "^2.5.1",
-    "react-aria": "^3.41.0"
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",

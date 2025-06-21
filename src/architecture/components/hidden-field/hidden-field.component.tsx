@@ -11,7 +11,7 @@ const HiddenField = ({ id, name, value, type, checked, readOnly, onChange }: Hid
       onChange={onChange}
       readOnly={readOnly}
       disabled={readOnly}
-      className="bsh:appearance-none!"
+      className="bsh:appearance-none! bsh:absolute! bsh:left-[-1000px]!"
     />
   );
 };
