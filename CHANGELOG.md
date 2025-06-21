@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.8] - 2025-06-21
+
 ## Changed
 
 - Added some extra styles to the hidden field, so it won't affect the layout of the HTML and require the user to use absolute positioning to make it looks right.
@@ -59,7 +61,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Moved the headless code from `beesoft-components` to this library, this will be the location where all headless work is done from now on.
 
-[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.7...develop
+[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.8...develop
+[0.0.8]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.8
 [0.0.7]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.7
 [0.0.7-0]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.7-0
 [0.0.6]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.6
