@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Changed the tailwind imports to allow the library to be used in projects still using Tailwind v3.
+
 ## [0.0.8] - 2025-06-21
 
 ## Changed

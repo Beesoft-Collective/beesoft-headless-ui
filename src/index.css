@@ -1,4 +1,7 @@
-@import "tailwindcss" prefix(bsh);
+@layer bsh-theme, bsh-base, bsh-components, bsh-utilities;
+@import 'tailwindcss/theme.css' layer(bsh-theme) prefix(bsh);
+@import 'tailwindcss/preflight.css' layer(bsh-base) prefix(bsh);
+@import 'tailwindcss/utilities.css' layer(bsh-utilities) prefix(bsh);
 
 @theme {
   --color-*: initial;
