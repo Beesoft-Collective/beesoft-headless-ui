@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.9] - 2025-06-28
+
 ## Changed
 
 - Changed the tailwind imports to allow the library to be used in projects still using Tailwind v3.
@@ -65,7 +67,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Moved the headless code from `beesoft-components` to this library, this will be the location where all headless work is done from now on.
 
-[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.8...develop
+[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.9...develop
+[0.0.9]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.9
 [0.0.8]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.8
 [0.0.7]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.7
 [0.0.7-0]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.7-0
