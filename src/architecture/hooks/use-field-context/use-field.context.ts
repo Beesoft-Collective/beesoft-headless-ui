@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { FieldContext } from './use-field-context.props.ts';
 
-const useFieldContextHook = () => {
+const useFieldContext = () => {
   return useContext(FieldContext);
 };
 
-export { useFieldContextHook };
+export { useFieldContext };
