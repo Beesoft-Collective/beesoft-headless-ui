@@ -9,7 +9,7 @@ import React, {
   useImperativeHandle,
   useMemo,
 } from 'react';
-import { useFieldContextHook } from 'architecture/hooks/use-field-context/use-field-context.hook.ts';
+import { useFieldContext } from 'architecture/hooks/use-field-context/use-field.context.ts';
 import type {
   CheckboxCheckState,
   CheckboxElementProps,
@@ -23,13 +23,13 @@ import { useRenderedMarkup } from 'architecture/hooks/use-rendered-markup/use-re
 const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
   const { name, value, checked = false, partial = false, readOnly, onChange, children, className } = props;
 
-  const fieldContext = useFieldContextHook();
+  const fieldContext = useFieldContext();
   const internalId = useId();
 
   const finalId = useMemo(
     () => fieldContext?.sharedId || props.id || internalId,
-    [fieldContext?.sharedId || props.id || internalId]
-  )
+    [fieldContext?.sharedId, props.id, internalId]
+  );
 
   const [checkedState, setCheckedState, checkedStateRef] = useStateRefInitial<CheckboxCheckState>({
     checked: false,
@@ -65,7 +65,7 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
 
     onChange?.({
       originalEvent: event,
-      name: name || event.target.name,
+      name,
       value,
       checked: checkedValue,
     });

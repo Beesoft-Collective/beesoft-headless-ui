@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Added
+
+- Create a new toggle component and created a simple storybook test.
+
 ## [0.0.9] - 2025-06-28
 
 ## Changed
