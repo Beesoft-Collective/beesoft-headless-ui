@@ -1,5 +1,3 @@
-import { Signal } from '@preact/signals';
-
-export interface HeadlessProviderProps {
-  props: Record<string, Signal>;
+export interface HeadlessProviderProps<T> {
+  props: Record<string, T>;
 }
