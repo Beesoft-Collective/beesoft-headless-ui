@@ -1,17 +1,22 @@
 import type { RadioItemElementProps, RadioItemProps, RadioItemRenderProps } from './radio-item.props.ts';
-import { memo, useEffect, useId, useMemo, useState } from 'react';
+import { type ChangeEvent, memo, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useHeadlessContext } from 'architecture/hooks/use-headless-context.ts';
-import { type Signal, useSignalEffect } from '@preact/signals';
+import { type Signal, useSignalEffect } from '@preact/signals-react';
 import { HiddenField } from 'architecture/components/hidden-field/hidden-field.component.tsx';
 import { useFieldContext } from 'architecture/hooks/use-field-context/use-field.context.ts';
 import { useRenderedMarkup } from 'architecture/hooks/use-rendered-markup/use-rendered-markup.hook.tsx';
+import type { ComparatorFunction } from 'architecture/hooks/use-data-comparator/use-data-comparator.props.ts';
+import { useEvent } from '@beesoft/common';
 
 const RadioItemComponent = ({ value, className, children }: RadioItemProps) => {
+  const [name, setName] = useState<string>();
   const [checkedState, setCheckedState] = useState(false);
 
-  let nameSignal: Signal<string> | undefined;
-  let valueSignal: Signal<unknown> | undefined;
-  let readOnlySignal: Signal<boolean> | undefined;
+  const nameSignal = useRef<Signal<string>>();
+  const valueSignal = useRef<Signal<unknown>>();
+  const readOnlySignal = useRef<Signal<boolean>>();
+  const useComparator = useRef<Signal<boolean>>();
+  const compare = useRef<ComparatorFunction>();
 
   const headlessContext = useHeadlessContext();
   const fieldContext = useFieldContext();
@@ -24,24 +29,41 @@ const RadioItemComponent = ({ value, className, children }: RadioItemProps) => {
 
   useEffect(() => {
     if (headlessContext) {
-      nameSignal = headlessContext['nameSignal'] as Signal<string>;
-      valueSignal = headlessContext['valueSignal'] as Signal<unknown>;
-      readOnlySignal = headlessContext['readOnlySignal'] as Signal<boolean>;
+      nameSignal.current = headlessContext['nameSignal'] as Signal<string>;
+      valueSignal.current = headlessContext['valueSignal'] as Signal<unknown>;
+      readOnlySignal.current = headlessContext['readOnlySignal'] as Signal<boolean>;
+      useComparator.current = headlessContext['useComparator'] as Signal<boolean>;
+      compare.current = headlessContext['compare'] as ComparatorFunction;
     }
   }, [headlessContext]);
 
   useSignalEffect(() => {
-    setCheckedState(value === valueSignal?.value);
+    if (useComparator && valueSignal.current && compare.current) {
+      setCheckedState(compare.current(value, valueSignal.current.value));
+    } else {
+      setCheckedState(value === valueSignal.current?.value);
+    }
   });
 
-  const hiddenField = nameSignal ? (
+  useSignalEffect(() => {
+    setName(nameSignal.current?.value);
+  });
+
+  const handleOnChange = useEvent((event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target.checked && valueSignal.current) {
+      valueSignal.current.value = value;
+    }
+  });
+
+  const hiddenField = name ? (
     <HiddenField
       id={finalId}
-      name={nameSignal.value}
+      name={name}
       type="radio"
       value={value as string | number}
       checked={checkedState}
-      readOnly={readOnlySignal?.value ?? false}
+      readOnly={readOnlySignal.current?.value ?? false}
+      onChange={handleOnChange}
     />
   ) : null;
 
@@ -49,7 +71,7 @@ const RadioItemComponent = ({ value, className, children }: RadioItemProps) => {
     wrapperElement: 'label',
     renderProps: {
       checked: checkedState,
-      readOnly: readOnlySignal?.value ?? false,
+      readOnly: readOnlySignal.current?.value ?? false,
     },
     elementProps: {
       htmlFor: finalId,

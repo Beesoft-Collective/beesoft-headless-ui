@@ -28,8 +28,8 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@beesoft/common": "^0.1.13",
-    "@preact/signals": "^2.0.4",
+    "@beesoft/common": "^0.1.17",
+    "@preact/signals-react": "^3.2.1",
     "classnames": "^2.5.1"
   },
   "devDependencies": {

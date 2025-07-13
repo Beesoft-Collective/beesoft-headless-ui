@@ -1,31 +1,35 @@
 import type { RadioGroupProps } from './radio-group.props.ts';
-import { type ChangeEvent, memo, useCallback, useEffect, useMemo } from 'react';
-import { type Signal, useSignal } from '@preact/signals';
+import { type ChangeEvent, memo, useEffect, useMemo } from 'react';
+import { type Signal, useSignal } from '@preact/signals-react';
 import { HeadlessProvider } from 'architecture/components/headless-provider/headless-provider.component.tsx';
 import {
-  type DataComparator,
-  defaultComparator,
-} from 'architecture/hooks/use-data-comparator/use-data-comparator.props.ts';
+  useDataComparator
+} from 'architecture/hooks/use-data-comparator/use-data-comparator.hook.ts';
+import { useEvent } from '@beesoft/common';
+import type { ComparatorFunction } from 'architecture/hooks/use-data-comparator/use-data-comparator.props.ts';
 
 const RadioGroupComponent = <T,>({
   name,
   value,
-  comparator = defaultComparator,
+  comparator,
   readOnly = false,
   onChange,
   className,
   children
 }: RadioGroupProps<T>) => {
-  const nameSignal = useSignal(name);
-  const valueSignal = useSignal(value);
-  const readOnlySignal = useSignal(readOnly);
+  const nameSignal = useSignal<string>();
+  const valueSignal = useSignal<T>();
+  const readOnlySignal = useSignal<boolean>();
+  const useComparator = useSignal<boolean>();
+  const compare = useDataComparator(comparator);
 
-  const componentContext = useMemo<Record<string, Signal | DataComparator<T>>>(() => {
+  const componentContext = useMemo<Record<string, Signal | ComparatorFunction<T>>>(() => {
     return {
       nameSignal,
       valueSignal,
       readOnlySignal,
-      comparator,
+      useComparator,
+      compare,
     };
   }, []);
 
@@ -41,15 +45,18 @@ const RadioGroupComponent = <T,>({
     readOnlySignal.value = readOnly;
   }, [readOnly]);
 
-  const handleOnChange = useCallback(
+  useEffect(() => {
+    useComparator.value = comparator !== undefined;
+  }, [comparator]);
+
+  const handleOnChange = useEvent(
     (event: ChangeEvent<HTMLInputElement>) => {
       onChange?.({
         originalEvent: event,
         name,
-        value: event.target.value,
+        value: valueSignal.value,
       });
-    },
-    [onChange]
+    }
   );
 
   return (
