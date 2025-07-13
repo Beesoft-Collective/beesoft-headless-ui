@@ -31,13 +31,12 @@ const Template = (args: ToggleProps) => {
       <Label className="bsh:hover:cursor-pointer">Test Toggle</Label>
       <Toggle
         toggled={toggled}
-        className="bsh:group bsh:relative bsh:flex bsh:h-7 bsh:w-14 bsh:cursor-pointer bsh:rounded-full bsh:p-1 bsh:ease-in-out"
+        className="bsh:group bsh:relative bsh:flex bsh:border bsh:border-black bsh:bg-white bsh:h-7 bsh:w-14 bsh:cursor-pointer bsh:rounded-full bsh:p-1 bsh:ease-in-out"
         {...args}
         onChange={onToggleChanged}
       >
         <span
-          style={{ backgroundColor: 'blue' }}
-          className="bsh:pointer-events-none bsh:inline-block bsh:size-5 bsh:translate-x-0 bsh:rounded-full bsh:transition bsh:duration-200 bsh:ease-in-out bsh:group-data-toggled:translate-x-7"
+          className="bsh:pointer-events-none bsh:inline-block bsh:bg-blue-500 bsh:size-5 bsh:translate-x-0 bsh:rounded-full bsh:transition bsh:duration-200 bsh:ease-in-out bsh:group-data-toggled:translate-x-7"
         />
       </Toggle>
     </Field>
