@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Previously forgot to export the new radio group components and types.
+
 ## [0.0.10] - 2025-07-13
 
 ## Added
