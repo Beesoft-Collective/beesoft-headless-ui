@@ -1,6 +1,6 @@
 import type { ChangeEvent, ReactNode } from 'react';
 import type { FormInputControl, MakeRequired, TypeOrArray } from '@beesoft/common';
-import type { DataComparator } from 'architecture/hooks/use-data-comparator/use-data-comparator.hook.ts';
+import type { DataComparator } from 'architecture/hooks/use-data-comparator/use-data-comparator.props.ts';
 
 export interface RadioChangeEvent {
   name: string;
