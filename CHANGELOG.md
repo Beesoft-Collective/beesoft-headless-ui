@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Fixed an issue where setting readOnly was not being set in the radio button items.
+
 ## [0.0.11] - 2025-07-15
 
 ## Changed

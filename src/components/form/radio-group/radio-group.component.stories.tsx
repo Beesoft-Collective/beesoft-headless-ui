@@ -52,6 +52,7 @@ const Template = (args: RadioGroupProps<TestData>) => {
       <RadioGroup
         name="test"
         value={selected}
+        readOnly={args.readOnly}
         comparator="value"
         onChange={handleOnChange}
         className="bsh:p-1"
@@ -77,6 +78,7 @@ const Template = (args: RadioGroupProps<TestData>) => {
 export const Default: Story = {
   args: {
     name: 'test',
+    readOnly: false,
   },
-  render: (args) => <Template name={args.name} onChange={args.onChange} />,
+  render: (args) => <Template name={args.name} onChange={args.onChange} readOnly={args.readOnly} />,
 };

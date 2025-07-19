@@ -11,6 +11,7 @@ import { useEvent } from '@beesoft/common';
 const RadioItemComponent = ({ value, className, children }: RadioItemProps) => {
   const [name, setName] = useState<string>();
   const [checkedState, setCheckedState] = useState(false);
+  const [readOnlyState, setReadOnlyState] = useState(false);
 
   const nameSignal = useRef<Signal<string>>();
   const valueSignal = useRef<Signal<unknown>>();
@@ -49,6 +50,10 @@ const RadioItemComponent = ({ value, className, children }: RadioItemProps) => {
     setName(nameSignal.current?.value);
   });
 
+  useSignalEffect(() => {
+    setReadOnlyState(readOnlySignal.current?.value ?? false);
+  });
+
   const handleOnChange = useEvent((event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked && valueSignal.current) {
       valueSignal.current.value = value;
@@ -62,7 +67,7 @@ const RadioItemComponent = ({ value, className, children }: RadioItemProps) => {
       type="radio"
       value={value as string | number}
       checked={checkedState}
-      readOnly={readOnlySignal.current?.value ?? false}
+      readOnly={readOnlyState}
       onChange={handleOnChange}
     />
   ) : null;
@@ -71,7 +76,7 @@ const RadioItemComponent = ({ value, className, children }: RadioItemProps) => {
     wrapperElement: 'label',
     renderProps: {
       checked: checkedState,
-      readOnly: readOnlySignal.current?.value ?? false,
+      readOnly: readOnlyState,
     },
     elementProps: {
       htmlFor: finalId,
