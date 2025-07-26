@@ -1,6 +1,6 @@
 import type { CheckboxChangeEvent } from '../checkboxes.interfaces.ts';
 import type { ChildrenType } from 'architecture/headless-interfaces.ts';
-import type { FormInputControl, MakeRequired } from '@beesoft/common';
+import type { FormInputControl } from '@beesoft/common';
 
 export interface CheckboxCheckState {
   checked: boolean;
@@ -17,7 +17,7 @@ export interface CheckboxElementProps {
   htmlFor: string;
 }
 
-export interface CheckboxProps extends MakeRequired<FormInputControl<unknown, CheckboxChangeEvent>, 'name'> {
+export interface CheckboxProps extends FormInputControl<unknown, CheckboxChangeEvent> {
   checked?: boolean;
   partial?: boolean;
   children?: ChildrenType<CheckboxRenderProps>;

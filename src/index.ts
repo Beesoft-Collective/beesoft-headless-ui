@@ -1,5 +1,6 @@
 // components
 import { Checkbox } from "./components/form/checkboxes/checkbox/checkbox.component.tsx";
+import { CheckboxGroup } from './components/form/checkboxes/checkbox-group/checkbox-group.component.tsx';
 import { Field } from "./components/common/field/field.component.tsx";
 import { Label } from "./components/common/label/label.component.tsx";
 import { HeadlessProvider } from './architecture/components/headless-provider/headless-provider.component.tsx';
@@ -15,6 +16,10 @@ import { useFieldContext } from "architecture/hooks/use-field-context/use-field.
 // types
 import type { ComponentAnimationProps } from "./components/component-interfaces.ts";
 import type { CheckboxChangeEvent } from "./components/form/checkboxes/checkboxes.interfaces.ts";
+import type {
+  CheckboxGroupChangeEvent,
+  CheckboxGroupProps
+} from './components/form/checkboxes/checkbox-group/checkbox-group.props.ts';
 import type { CheckboxProps } from './components/form/checkboxes/checkbox/checkbox.props.ts';
 import type { RadioChangeEvent, RadioGroupProps } from './components/form/radio-group/radio-group.props.ts';
 import type { RadioItemProps } from './components/form/radio-group/radio-item.props.ts';
@@ -25,6 +30,7 @@ import './index.css';
 
 export {
   Checkbox,
+  CheckboxGroup,
   Field,
   Label,
   HeadlessProvider,
@@ -39,6 +45,8 @@ export {
 export type {
   ComponentAnimationProps,
   CheckboxChangeEvent,
+  CheckboxGroupChangeEvent,
+  CheckboxGroupProps,
   CheckboxProps,
   RadioChangeEvent,
   RadioGroupProps,

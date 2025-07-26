@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Added
+
+- Added a new checkbox group component, this will be a wrapper for managing checkboxes that are meant to work as a group.
+
 ## [0.0.12] - 2025-07-19
 
 ## Changed
