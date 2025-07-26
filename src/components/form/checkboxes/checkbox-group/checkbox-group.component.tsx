@@ -48,7 +48,7 @@ const CheckboxGroupComponent = <T,>({
       } else {
         // this shouldn't be required, but I'm doing it just in case
         if (event.checked) {
-          valueSignal.value = [event.value as T];
+          valueSignal.value = [eventValue];
         }
       }
     }

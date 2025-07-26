@@ -32,7 +32,7 @@ const data: Array<TestData> = [
 
 const Template = (args: CheckboxGroupProps<TestData>) => {
   // @ts-expect-error can't figure out why this is throwing an error
-  const [selected, setSelected] = useState<TestData>(data[0]);
+  const [selected, setSelected] = useState<Array<TestData>>([data[0], data[2]]);
 
   const handleOnChange = (event?: CheckboxGroupChangeEvent) => {
     const selectedItem = data.find(
@@ -40,7 +40,12 @@ const Template = (args: CheckboxGroupProps<TestData>) => {
     );
 
     if (selectedItem) {
-      setSelected(selectedItem);
+      setSelected((prevState) => {
+        return [
+          ...prevState,
+          selectedItem,
+        ];
+      });
     }
 
     if (event) {
@@ -62,10 +67,10 @@ const Template = (args: CheckboxGroupProps<TestData>) => {
         className="bsh:p-1"
       >
         {data.map((item) => (
-          <Field className="bsh:flex bsh:flex-row bsh:items-center">
+          <Field key={`checkbox_${item.value}`} className="bsh:flex bsh:flex-row bsh:items-center">
             <Checkbox
               className="bsh:group"
-              value={item.value}
+              value={item}
             >
               <svg
                 viewBox="0 0 21 21"

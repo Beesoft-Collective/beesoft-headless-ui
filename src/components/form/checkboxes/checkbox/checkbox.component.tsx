@@ -30,7 +30,7 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
   const [readOnlyState, setReadOnlyState] = useState(readOnly);
 
   const nameSignal = useRef<Signal<string>>();
-  const valueSignal = useRef<Signal<unknown>>();
+  const valueSignal = useRef<Signal<Array<unknown>>>();
   const readOnlySignal = useRef<Signal<boolean>>();
   const useComparator = useRef<Signal<boolean>>();
   const compare = useRef<ComparatorFunction>();
@@ -72,7 +72,7 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
   useEffect(() => {
     if (headlessContext) {
       nameSignal.current = headlessContext['nameSignal'] as Signal<string>;
-      valueSignal.current = headlessContext['valueSignal'] as Signal<unknown>;
+      valueSignal.current = headlessContext['valueSignal'] as Signal<Array<unknown>>;
       readOnlySignal.current = headlessContext['readOnlySignal'] as Signal<boolean>;
       useComparator.current = headlessContext['useComparator'] as Signal<boolean>;
       compare.current = headlessContext['compare'] as ComparatorFunction;
@@ -82,10 +82,13 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
   useSignalEffect(() => {
     if (useComparator.current?.value && valueSignal.current && compare.current) {
       const compareFunc = compare.current;
+      const checked = valueSignal.current.value.some(
+        (item) => compareFunc(value, item)
+      );
       setCheckedState((prevState) => {
         return {
           ...prevState,
-          checked: compareFunc(value, valueSignal.current?.value),
+          checked,
         };
       });
     } else {
@@ -144,7 +147,7 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
     setChecked,
   }));
 
-  const hiddenField = (
+  const hiddenField = nameState && (
     <HiddenField
       id={finalId}
       name={nameState}

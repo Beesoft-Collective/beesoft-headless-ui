@@ -14,7 +14,7 @@ export interface CheckboxGroupChangeEvent extends BaseEvent<HTMLInputElement> {
 }
 
 export interface CheckboxGroupProps<T>
-  extends MakeRequired<FormInputControl<T, CheckboxGroupChangeEvent>, 'name'> {
+  extends MakeRequired<FormInputControl<Array<T>, CheckboxGroupChangeEvent>, 'name'> {
   comparator?: DataComparator<T>
   children?: Array<ReactNode>;
 }

@@ -58,7 +58,7 @@ const Template = (args: RadioGroupProps<TestData>) => {
         className="bsh:p-1"
       >
         {data.map((item) => (
-          <Field  key={`radio_${item.value}`} className="bsh:flex bsh:items-center bsh:gap-2">
+          <Field key={`radio_${item.value}`} className="bsh:flex bsh:items-center bsh:gap-2">
             <RadioItem
               value={item}
               className="bsh:group bsh:flex bsh:size-5 bsh:items-center bsh:justify-center bsh:rounded-full bsh:border bsh:bg-white bsh:data-checked:bg-blue-400"
