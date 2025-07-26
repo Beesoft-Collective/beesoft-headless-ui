@@ -21,5 +21,5 @@ export interface CheckboxGroupProps<T>
 
 export type CheckboxGroupContextTypes<T> =
   | Signal
-  | ComparatorFunction<T> | (
-  (event?: CheckboxChangeEvent) => void);
+  | ComparatorFunction<T>
+  | ((event?: CheckboxChangeEvent) => void);
