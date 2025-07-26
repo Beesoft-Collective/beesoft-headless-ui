@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.16] - 2025-07-26
+
 ## Changed
 
 - Put an undefined check on the value property since that seems to be the place where the issue is happening.
@@ -113,7 +115,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Moved the headless code from `beesoft-components` to this library, this will be the location where all headless work is done from now on.
 
-[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.15...develop
+[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.16...develop
+[0.0.16]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.16
 [0.0.15]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.15
 [0.0.14]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.14
 [0.0.13]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.13
