@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Found an issue with the checkbox group, it was not checking all items in the array for the individual items value.
+
 ## [0.0.13] - 2025-07-26
 
 ## Added

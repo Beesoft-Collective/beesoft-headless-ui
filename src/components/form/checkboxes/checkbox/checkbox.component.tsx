@@ -92,10 +92,11 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
         };
       });
     } else {
+      const checked = valueSignal.current?.value.some((item) => value === item) ?? false;
       setCheckedState((prevState) => {
         return {
           ...prevState,
-          checked: value === valueSignal.current?.value,
+          checked,
         };
       });
     }
