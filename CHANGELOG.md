@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Put an undefined check on the value property since that seems to be the place where the issue is happening.
+
 ## [0.0.15] - 2025-07-26
 
 ## Changed

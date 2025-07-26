@@ -83,9 +83,9 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
     if (valueSignal.current) {
       if (useComparator.current?.value && compare.current) {
         const compareFunc = compare.current;
-        const checked = valueSignal.current.value.some(
+        const checked = valueSignal.current.value?.some(
           (item) => compareFunc(value, item)
-        );
+        ) ?? false;
         setCheckedState((prevState) => {
           return {
             ...prevState,
@@ -93,7 +93,7 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
           };
         });
       } else {
-        const checked = valueSignal.current.value.some((item) => value === item);
+        const checked = valueSignal.current.value?.some((item) => value === item) ?? false;
         setCheckedState((prevState) => {
           return {
             ...prevState,
