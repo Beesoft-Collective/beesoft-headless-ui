@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.14] - 2025-07-26
+
 ## Changed
 
 - Found an issue with the checkbox group, it was not checking all items in the array for the individual items value.
@@ -101,7 +103,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Moved the headless code from `beesoft-components` to this library, this will be the location where all headless work is done from now on.
 
-[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.13...develop
+[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.14...develop
+[0.0.14]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.14
 [0.0.13]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.13
 [0.0.12]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.12
 [0.0.11]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.11
