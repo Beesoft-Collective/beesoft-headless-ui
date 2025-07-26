@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.13] - 2025-07-26
+
 ## Added
 
 - Added a new checkbox group component, this will be a wrapper for managing checkboxes that are meant to work as a group.
@@ -95,7 +97,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Moved the headless code from `beesoft-components` to this library, this will be the location where all headless work is done from now on.
 
-[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.12...develop
+[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.13...develop
+[0.0.13]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.13
 [0.0.12]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.12
 [0.0.11]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.11
 [0.0.10]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.10
