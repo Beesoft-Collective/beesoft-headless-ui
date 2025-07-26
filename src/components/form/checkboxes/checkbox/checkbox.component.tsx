@@ -80,25 +80,27 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
   }, [headlessContext]);
 
   useSignalEffect(() => {
-    if (useComparator.current?.value && valueSignal.current && compare.current) {
-      const compareFunc = compare.current;
-      const checked = valueSignal.current.value.some(
-        (item) => compareFunc(value, item)
-      );
-      setCheckedState((prevState) => {
-        return {
-          ...prevState,
-          checked,
-        };
-      });
-    } else {
-      const checked = valueSignal.current?.value.some((item) => value === item) ?? false;
-      setCheckedState((prevState) => {
-        return {
-          ...prevState,
-          checked,
-        };
-      });
+    if (valueSignal.current) {
+      if (useComparator.current?.value && compare.current) {
+        const compareFunc = compare.current;
+        const checked = valueSignal.current.value.some(
+          (item) => compareFunc(value, item)
+        );
+        setCheckedState((prevState) => {
+          return {
+            ...prevState,
+            checked,
+          };
+        });
+      } else {
+        const checked = valueSignal.current.value.some((item) => value === item);
+        setCheckedState((prevState) => {
+          return {
+            ...prevState,
+            checked,
+          };
+        });
+      }
     }
   });
 
