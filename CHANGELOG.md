@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.17] - 2025-07-27
+
 ## Changed
 
 - Forgot to setup the new checkbox group `onChange` event and make the code work correctly.
@@ -119,7 +121,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Moved the headless code from `beesoft-components` to this library, this will be the location where all headless work is done from now on.
 
-[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.16...develop
+[unreleased]: https://github.com/Beesoft-Collective/beesoft-headless-ui/compare/v0.0.17...develop
+[0.0.17]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.17
 [0.0.16]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.16
 [0.0.15]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.15
 [0.0.14]: https://github.com/Beesoft-Collective/beesoft-headless-ui/releases/tag/v0.0.14
