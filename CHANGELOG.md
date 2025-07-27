@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Forgot to fix the non-comparator part of the checkbox group change event.
+
 ## [0.0.17] - 2025-07-27
 
 ## Changed

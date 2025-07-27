@@ -43,7 +43,7 @@ const CheckboxGroupComponent = <T,>({
               valueSignal.value.push(eventValue);
             }
           } else {
-            const newValues = valueSignal.value.filter((item) => item === eventValue);
+            const newValues = valueSignal.value.filter((item) => item !== eventValue);
             valueSignal.value = [...newValues];
           }
         }
