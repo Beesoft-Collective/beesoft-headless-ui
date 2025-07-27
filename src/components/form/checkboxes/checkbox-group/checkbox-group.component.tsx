@@ -23,19 +23,21 @@ const CheckboxGroupComponent = <T,>({
 
   const onCheckboxChange = useEvent((event?: CheckboxChangeEvent) => {
     if (event) {
+      const { checked } = event;
       const eventValue = event.value as T;
+
       if (valueSignal.value) {
         if (comparator) {
-          if (event.checked) {
+          if (checked) {
             if (valueSignal.value.findIndex((item) => compare(eventValue, item)) === -1) {
               valueSignal.value.push(eventValue);
             }
           } else {
-            const newValues = valueSignal.value.filter((item) => compare(eventValue, item));
+            const newValues = valueSignal.value.filter((item) => !compare(eventValue, item));
             valueSignal.value = [...newValues];
           }
         } else {
-          if (event.checked) {
+          if (checked) {
             // this shouldn't happen, but don't want to have duplicates
             if (valueSignal.value.indexOf(eventValue) === -1) {
               valueSignal.value.push(eventValue);
@@ -47,7 +49,7 @@ const CheckboxGroupComponent = <T,>({
         }
       } else {
         // this shouldn't be required, but I'm doing it just in case
-        if (event.checked) {
+        if (checked) {
           valueSignal.value = [eventValue];
         }
       }

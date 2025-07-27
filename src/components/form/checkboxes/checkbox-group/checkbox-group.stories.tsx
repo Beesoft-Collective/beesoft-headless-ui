@@ -35,20 +35,8 @@ const Template = (args: CheckboxGroupProps<TestData>) => {
   const [selected, setSelected] = useState<Array<TestData>>([data[0], data[2]]);
 
   const handleOnChange = (event?: CheckboxGroupChangeEvent) => {
-    const selectedItem = data.find(
-      (item) => event?.value?.some((eventItem) => (eventItem as TestData).value === item.value)
-    );
-
-    if (selectedItem) {
-      setSelected((prevState) => {
-        return [
-          ...prevState,
-          selectedItem,
-        ];
-      });
-    }
-
     if (event) {
+      setSelected(event.value as Array<TestData>);
       args.onChange?.(event);
     }
   };

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Forgot to setup the new checkbox group `onChange` event and make the code work correctly.
+
 ## [0.0.16] - 2025-07-26
 
 ## Changed

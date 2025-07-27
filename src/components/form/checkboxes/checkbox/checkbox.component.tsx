@@ -22,6 +22,7 @@ import { useRenderedMarkup } from 'architecture/hooks/use-rendered-markup/use-re
 import { type Signal, useSignalEffect } from '@preact/signals-react';
 import type { ComparatorFunction } from 'architecture/hooks/use-data-comparator/use-data-comparator.props.ts';
 import { useHeadlessContext } from 'architecture/hooks/use-headless-context.ts';
+import type { CheckboxChangeEvent } from '../checkboxes.interfaces.ts';
 
 const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
   const { name, value, checked = false, partial = false, readOnly, onChange, children, className } = props;
@@ -34,6 +35,7 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
   const readOnlySignal = useRef<Signal<boolean>>();
   const useComparator = useRef<Signal<boolean>>();
   const compare = useRef<ComparatorFunction>();
+  const onCheckboxChange = useRef<(event?: CheckboxChangeEvent) => void>();
 
   const headlessContext = useHeadlessContext();
   const fieldContext = useFieldContext();
@@ -76,6 +78,7 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
       readOnlySignal.current = headlessContext['readOnlySignal'] as Signal<boolean>;
       useComparator.current = headlessContext['useComparator'] as Signal<boolean>;
       compare.current = headlessContext['compare'] as ComparatorFunction;
+      onCheckboxChange.current = headlessContext['onCheckboxChange'] as (event?: CheckboxChangeEvent) => void;
     }
   }, [headlessContext]);
 
@@ -121,12 +124,21 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
       partial: false,
     });
 
-    onChange?.({
-      originalEvent: event,
-      name: nameState,
-      value,
-      checked: checkedValue,
-    });
+    if (!onCheckboxChange.current) {
+      onChange?.({
+        originalEvent: event,
+        name: nameState,
+        value,
+        checked: checkedValue,
+      });
+    } else {
+      onCheckboxChange.current({
+        originalEvent: event,
+        name: nameState,
+        value,
+        checked: checkedValue,
+      });
+    }
   });
 
   const setPartiallyChecked = (partiallyChecked: boolean) => {
