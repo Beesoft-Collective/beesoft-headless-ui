@@ -66,3 +66,12 @@ export const Default: Story = {
   },
   render: (args) => <Template {...args} />,
 };
+
+export const ReadOnly: Story = {
+  args: {
+    name: 'test',
+    checked: true,
+    readOnly: true,
+  },
+  render: (args) => <Template {...args} />,
+};

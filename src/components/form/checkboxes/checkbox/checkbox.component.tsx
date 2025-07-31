@@ -25,7 +25,7 @@ import { useHeadlessContext } from 'architecture/hooks/use-headless-context.ts';
 import type { CheckboxChangeEvent } from '../checkboxes.interfaces.ts';
 
 const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
-  const { name, value, checked = false, partial = false, readOnly, onChange, children, className } = props;
+  const { name, value, checked = false, partial = false, readOnly = false, onChange, children, className } = props;
 
   const [nameState, setNameState] = useState(name);
   const [readOnlyState, setReadOnlyState] = useState(readOnly);
@@ -72,6 +72,10 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
   }, [checked, partial]);
 
   useEffect(() => {
+    setReadOnlyState(readOnly);
+  }, [readOnly]);
+
+  useEffect(() => {
     if (headlessContext) {
       nameSignal.current = headlessContext['nameSignal'] as Signal<string>;
       valueSignal.current = headlessContext['valueSignal'] as Signal<Array<unknown>>;
@@ -114,7 +118,9 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
   });
 
   useSignalEffect(() => {
-    setReadOnlyState(readOnlySignal.current?.value ?? false);
+    if (readOnlySignal.current) {
+      setReadOnlyState(readOnlySignal.current.value ?? false);
+    }
   });
 
   const handleChangeEvent = useEvent((event: ChangeEvent<HTMLInputElement>) => {

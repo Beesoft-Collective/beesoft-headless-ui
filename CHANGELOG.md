@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Found issue while trying to get read only working correctly in a component; the `useSignalEffect` of the read only signal was firing and the value of the signal wasn't be checked correctly.
+
 ## [0.0.18] - 2025-07-27
 
 ## Changed
