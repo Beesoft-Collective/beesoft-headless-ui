@@ -2,6 +2,7 @@ import { forceAssert, type TypeOrArray } from '@beesoft/common';
 import React, { createElement, type ReactNode } from 'react';
 import { createDataProperties } from '../../functions/create-data-properties.ts';
 import type { RenderedMarkupProps } from './use-rendered-markup.props.ts';
+import { useRenderChildren } from 'architecture/hooks/use-render-children/use-render-children.hook.ts';
 
 const useRenderedMarkup = <RP = undefined, P = undefined>({
   wrapperElement,
@@ -11,21 +12,15 @@ const useRenderedMarkup = <RP = undefined, P = undefined>({
   className,
   children,
 }: RenderedMarkupProps<RP, P>): React.JSX.Element | TypeOrArray<ReactNode> => {
-  if (typeof children === 'function') {
-    return innerWrapperElement ? (
-      <>
-        {innerWrapperElement}
-        {children(renderProps)}
-      </>
-    ) : children(renderProps);
-  } else {
-    const finalChildren = innerWrapperElement ? (
-      <>
-        {innerWrapperElement}
-        {children}
-      </>
-    ) : children;
+  const renderedChildren = useRenderChildren({ renderProps, children });
+  const finalChildren = innerWrapperElement ? (
+    <>
+      {innerWrapperElement}
+      {renderedChildren}
+    </>
+  ) : renderedChildren;
 
+  if (typeof children !== 'function') {
     return createElement(
       wrapperElement,
       Object.assign(
@@ -39,6 +34,8 @@ const useRenderedMarkup = <RP = undefined, P = undefined>({
       finalChildren
     );
   }
+
+  return finalChildren;
 };
 
 export { useRenderedMarkup };

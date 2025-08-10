@@ -28,9 +28,10 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@beesoft/common": "^0.1.17",
+    "@beesoft/common": "^0.1.18",
     "@preact/signals-react": "^3.2.1",
-    "classnames": "^2.5.1"
+    "classnames": "^2.5.1",
+    "date-fns": "^4.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
