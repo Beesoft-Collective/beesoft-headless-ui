@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@beesoft/common": "^0.1.17",
-    "@preact/signals-react": "^3.2.1",
+    "@preact/signals-react": "^3.6.1",
     "ajv": "^8.17.1",
     "classnames": "^2.5.1"
   },
