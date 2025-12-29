@@ -1,4 +1,4 @@
 export interface ScrollerPageMarkerProps {
-  intersectionObserver?: IntersectionObserver;
+  intersectionObserver?: IntersectionObserver | null;
   page: number;
 }

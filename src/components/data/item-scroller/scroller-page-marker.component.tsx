@@ -2,7 +2,7 @@ import { memo, useEffect, useRef } from 'react';
 import type { ScrollerPageMarkerProps } from './scroller-page-marker.props.ts';
 
 const ScrollerPageMarkerComponent = ({ intersectionObserver, page }: ScrollerPageMarkerProps) => {
-  const observedMarker = useRef<Element>();
+  const observedMarker = useRef<Element>(null);
 
   useEffect(() => {
     return () => {
@@ -21,7 +21,7 @@ const ScrollerPageMarkerComponent = ({ intersectionObserver, page }: ScrollerPag
     observedMarker.current = element;
   };
 
-  return <div data-page={page} data-name="marker" ref={(element) => element && onMarkerElementCreated(element)} />;
+  return <div data-page={page} data-name="marker" ref={(element) => { if (element) onMarkerElementCreated(element); }} />;
 };
 
 const ScrollerPageMarker = memo(ScrollerPageMarkerComponent);

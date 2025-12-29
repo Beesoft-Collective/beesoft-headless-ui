@@ -25,7 +25,7 @@ const InputComponent = (props: InputProps, ref: Ref<InputRef>) => {
     placeholderShown: false,
   });
 
-  const inputRef = useRef<HTMLElement>();
+  const inputRef = useRef<HTMLElement>(null);
 
   const focusListener = useEvent((event: FocusEvent) => {
     const element = event.target as HTMLElement;
@@ -107,7 +107,7 @@ const InputComponent = (props: InputProps, ref: Ref<InputRef>) => {
       ...componentState
     },
     elementProps: {
-      ref: (element) => element && inputElementCreated(element),
+      ref: (element) => { if (element) inputElementCreated(element); },
       suppressContentEditableWarning: true,
       contentEditable: !readOnly,
       inputMode,

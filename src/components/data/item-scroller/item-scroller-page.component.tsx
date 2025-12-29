@@ -8,7 +8,7 @@ const ItemScrollerPageComponent = ({
   height,
   children,
 }: ItemScrollerPageProps) => {
-  const observedPage = useRef<Element>();
+  const observedPage = useRef<Element>(null);
 
   useEffect(() => {
     return () => {
@@ -50,7 +50,7 @@ const ItemScrollerPageComponent = ({
       data-page={page}
       data-name="page"
       style={pageStyles}
-      ref={(element) => element && onPageElementCreated(element)}
+      ref={(element) => { if (element) onPageElementCreated(element); }}
     >
       {children}
     </div>
