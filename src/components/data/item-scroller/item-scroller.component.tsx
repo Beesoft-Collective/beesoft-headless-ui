@@ -20,13 +20,13 @@ const ItemScroller = ({
 
   const currentPage = useRef(1);
   const totalPages = useRef(0);
-  const nextPageIndex = useRef<number>();
+  const nextPageIndex = useRef<number>(undefined);
   const loadedData = useRef<JsonData>([]);
   const calculatedRenderPages = useRef<Record<string, JsonData>>({});
   const pageHeights = useRef<Record<number, number>>({});
 
-  const intersectionObserver = useRef<IntersectionObserver>();
-  const resizeObserver = useRef<ResizeObserver>();
+  const intersectionObserver = useRef<IntersectionObserver>(undefined);
+  const resizeObserver = useRef<ResizeObserver>(undefined);
 
   const uniqueId = useId();
 
