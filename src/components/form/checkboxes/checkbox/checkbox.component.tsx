@@ -30,12 +30,12 @@ const CheckboxComponent = (props: CheckboxProps, ref: Ref<CheckboxRef>) => {
   const [nameState, setNameState] = useState(name);
   const [readOnlyState, setReadOnlyState] = useState(readOnly);
 
-  const nameSignal = useRef<Signal<string>>();
-  const valueSignal = useRef<Signal<Array<unknown>>>();
-  const readOnlySignal = useRef<Signal<boolean>>();
-  const useComparator = useRef<Signal<boolean>>();
-  const compare = useRef<ComparatorFunction>();
-  const onCheckboxChange = useRef<(event?: CheckboxChangeEvent) => void>();
+  const nameSignal = useRef<Signal<string>>(undefined);
+  const valueSignal = useRef<Signal<Array<unknown>>>(undefined);
+  const readOnlySignal = useRef<Signal<boolean>>(undefined);
+  const useComparator = useRef<Signal<boolean>>(undefined);
+  const compare = useRef<ComparatorFunction>(undefined);
+  const onCheckboxChange = useRef<(event?: CheckboxChangeEvent) => void>(undefined);
 
   const headlessContext = useHeadlessContext();
   const fieldContext = useFieldContext();

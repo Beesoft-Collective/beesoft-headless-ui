@@ -13,11 +13,11 @@ const RadioItemComponent = ({ value, className, children }: RadioItemProps) => {
   const [checkedState, setCheckedState] = useState(false);
   const [readOnlyState, setReadOnlyState] = useState(false);
 
-  const nameSignal = useRef<Signal<string>>();
-  const valueSignal = useRef<Signal<unknown>>();
-  const readOnlySignal = useRef<Signal<boolean>>();
-  const useComparator = useRef<Signal<boolean>>();
-  const compare = useRef<ComparatorFunction>();
+  const nameSignal = useRef<Signal<string>>(undefined);
+  const valueSignal = useRef<Signal<unknown>>(undefined);
+  const readOnlySignal = useRef<Signal<boolean>>(undefined);
+  const useComparator = useRef<Signal<boolean>>(undefined);
+  const compare = useRef<ComparatorFunction>(undefined);
 
   const headlessContext = useHeadlessContext();
   const fieldContext = useFieldContext();
